@@ -1,0 +1,153 @@
+\documentclass[11pt,a4aper]{article}
+\pdfoutput=1
+
+\renewcommand{\baselinestretch}{1}
+\usepackage[UKenglish]{isodate}
+\cleanlookdateon
+
+%%%%% Fonts, symbols, colours, microtypography
+\usepackage{amsfonts,amsmath,amssymb,amsthm,mathtools,microtype} % Symbols & microtypography
+\usepackage[dvipsnames]{xcolor} % Colours with names -- see https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX for list
+\usepackage[noBBpl]{mathpazo} % Palatino, but not for mathbb
+
+%%%%% Figures, tables, lists
+\usepackage[labelsep=period,labelfont=bf,justification=centering]{caption}
+\usepackage{float,graphicx,subcaption}
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0ex,itemsep=0ex,parsep=0.4ex}
+\setlist[enumerate]{topsep=0ex,itemsep=0ex,parsep=0.4ex}
+
+\usepackage{parskip,fullpage}
+\usepackage{thm-restate}
+\usepackage[textsize=scriptsize]{todonotes}
+\setlength{\marginparwidth}{2cm}%to have larger todonotes
+\usepackage{comment}
+
+\usepackage{array}
+
+
+%%%%% Hyperlinking
+\usepackage[hyphens]{url} % Urls together with line breaking them
+\usepackage[linktoc=all,hidelinks,colorlinks,unicode=true]{hyperref} % Must be loaded after url
+\usepackage[capitalise,compress,nameinlink,noabbrev]{cleveref} % Must be loaded after hyperref
+\hypersetup{linkcolor={blue!70!black},citecolor={black},urlcolor={blue!70!black}}
+\usepackage{hyperref}
+
+\usepackage{tikz}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{claim}[lemma]{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{question}[lemma]{Question}
+\theoremstyle{definition}
+\newtheorem{remark}[lemma]{Remark}
+\newtheorem{problem}[lemma]{Problem}
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+   \def\@currentlabel{#2}%
+   \label{#1}\endgroup
+}
+\makeatother
+
+\newenvironment{poc}{\begin{proof}[Proof of
+    Claim]\renewcommand*{\qedsymbol}{$\blacksquare$}}{\end{proof}}
+
+\crefname{subsection}{Subsection}{Subsections}
+
+%%%%% Renew commands
+
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+% \renewcommand{\eps}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
+
+%%%%% mathbold and mathcal
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\bE}{\mathbb{E}}
+\newcommand*{\bN}{\mathbb{N}}
+\newcommand*{\bP}{\mathbb{P}}
+\newcommand*{\bR}{\mathbb{R}}
+\newcommand*{\bZ}{\mathbb{Z}}
+\newcommand*{\cF}{\mathcal{F}}
+\newcommand*{\cO}{\mathcal{O}}
+\newcommand*{\cE}{\mathcal{E}}
+\newcommand*{\cI}{\mathcal{I}}
+\newcommand*{\cJ}{\mathcal{J}}
+\newcommand*{\cR}{\mathcal{R}}
+\newcommand*{\cC}{\mathcal{C}}
+\newcommand*{\cX}{\mathcal{X}}
+\newcommand*{\cG}{\mathcal{G}}
+\newcommand*{\cY}{\mathcal{Y}}
+\newcommand*{\cB}{\mathcal{B}}
+\newcommand*{\cS}{\mathcal{S}}
+\newcommand*{\cD}{\mathcal{D}}
+\newcommand*{\cM}{\mathcal{M}}
+\newcommand*{\cP}{\mathcal{P}}
+\newcommand*{\cQ}{\mathcal{Q}}
+\newcommand*{\cA}{\mathcal{A}}
+\newcommand*{\cU}{\mathcal{U}}
+\DeclareMathOperator{\sq}{\square}
+
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+% Colors
+\newcommand{\colora}{Goldenrod}
+\newcommand{\colorb}{SkyBlue}
+\newcommand{\colorc}{Sepia}
+\newcommand{\colord}{orange}
+\newcommand{\colore}{MidnightBlue}
+\newcommand{\colorf}{white}
+\newcommand{\colorg}{black}
+
+\newcommand{\cola}{\coloredbullet{\colora}}
+\newcommand{\colb}{\coloredbullet{\colorb}}
+\newcommand{\colc}{\coloredbullet{\colorc}}
+\newcommand{\cold}{\coloredbullet{\colord}}
+\newcommand{\cole}{\coloredbullet{\colore}}
+\newcommand{\colf}{\coloredbullet{\colorf}}
+\newcommand{\colg}{\coloredbullet{\colorg}}
+
+  
+%%% Comments
+\newcommand{\bartosz}[1]{{\color{blue} BW: #1}}
+\newcommand{\clement}[1]{{\color{orange} CL: #1}}
+\newcommand{\nicolas}[1]{{\color{purple} UG: #1}}
+\newcommand{\ugo}[1]{{\color{red} NT: #1}}
+
+\title{Cool project}
+
+\date{\today}
+
+\author{
+Bartosz Walczak\footnotemark[1] \and 
+Cl\'ement Legrand-Duchesne\footnotemark[1]\and
+Ugo Giocanti\footnotemark[1] \and
+Nicolas Trotignon\footnotemark[4]
+}
+
+\begin{document}
+\maketitle
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} % Make affiliation marks symbols
+
+\footnotetext[1]{Theoretical Computer Science Department, Faculty of Mathematics and Computer Science, Jagiellonian University, Kraków, Poland.}
+\footnotetext[2]{}
+
+\renewcommand{\thefootnote}{\arabic{footnote}} % Return to normal footnote symbols
+
+\begin{abstract}
+\end{abstract}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
